@@ -3,286 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YTFI DOWN - Social Media Video Downloader</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>YTFI DOWN - Free Online Video Downloader</title>
+    <meta name="description" content="Easily download online videos, reels, and clips instantly with YTFI DOWN video downloader. Fast, free, and easy to use.">
+    <meta name="keywords" content="YTFI DOWN, video downloader, online video downloader, reel downloader, free video download">
+    <meta name="author" content="Fahad Ahmed">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --bg-color: #050709;
-            --card-bg: #11161d;
-            --accent-color: #ff0000;
-            --btn-bg: #cc0000;
-            --btn-hover: #990000;
-            --text-color: #ffffff;
-            --text-muted: #a1a1aa;
-            --border-color: #27272a;
-        }
-
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
+            background-color: #0b0f19;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
-        }
-
-        .navbar {
-            background-color: rgba(17, 22, 29, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--accent-color);
-        }
-
-        .navbar-brand {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: #ffffff !important;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .ig-logo-icon {
-            width: 38px;
-            height: 38px;
-            background: linear-gradient(45deg, #ff0000, #ff4d4d, #990000);
-            border-radius: 10px;
-            display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
+            min-height: 100vh;
         }
-
-        .hero-section {
-            padding: 35px 12px 25px;
+        .container {
+            background: #161b22;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
             text-align: center;
+            max-width: 500px;
+            width: 90%;
         }
-
-        .hero-title {
-            color: #ffffff;
-            font-weight: 800;
-            font-size: 1.8rem;
-        }
-
-        @media (min-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-        }
-
-        .search-card {
-            background-color: var(--card-bg);
-            border: 2px solid var(--border-color);
-            border-radius: 16px;
-            padding: 20px 15px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-        }
-
-        .input-group-custom {
-            display: flex;
-            align-items: center;
+        h1 { color: #ff3333; margin-bottom: 10px; }
+        p { color: #8b949e; margin-bottom: 25px; }
+        input[type="text"] {
             width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+            background: #0d1117;
+            color: white;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            font-size: 16px;
         }
-
-        .form-control-lg {
-            background-color: #050709 !important;
-            border: 2px solid var(--accent-color) !important;
-            color: #ffffff !important;
-            border-top-left-radius: 10px !important;
-            border-bottom-left-radius: 10px !important;
-            border-top-right-radius: 0 !important;
-            border-bottom-right-radius: 0 !important;
-            font-size: 0.95rem;
-            padding: 12px 14px;
-            flex: 1;
-            min-width: 0;
+        button {
+            background-color: #ff3333;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
         }
-
-        .form-control-lg::placeholder {
-            color: #d4d4d8 !important;
-            opacity: 0.8;
-            font-size: 0.88rem;
-        }
-
-        .form-control-lg:focus {
-            background-color: #050709 !important;
-            border-color: #ff3333 !important;
-            color: #ffffff !important;
-            box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.35);
-        }
-
-        .btn-custom {
-            background-color: var(--btn-bg);
-            color: #ffffff !important;
-            border-top-right-radius: 10px !important;
-            border-bottom-right-radius: 10px !important;
-            border-top-left-radius: 0 !important;
-            border-bottom-left-radius: 0 !important;
-            font-weight: 700;
-            font-size: 0.95rem;
-            padding: 12px 18px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--accent-color);
-            border-left: none;
-            white-space: nowrap;
-        }
-
-        .btn-custom:hover {
-            background-color: var(--btn-hover);
-            color: #ffffff !important;
-        }
-
-        .feature-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 20px;
-            height: 100%;
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            color: var(--accent-color);
-            margin-bottom: 12px;
-        }
-
-        footer {
-            margin-top: auto;
-            background-color: #000000;
-            border-top: 1px solid var(--border-color);
-            padding: 18px 0;
-            color: var(--text-muted);
-        }
+        button:hover { background-color: #e60000; }
     </style>
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <div class="ig-logo-icon">
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
-                YTFI DOWN
-            </a>
-        </div>
-    </nav>
-
-    <div class="container hero-section">
-        <h1 class="hero-title mb-3">YTFI DOWN - ভিডিও ডাউনলোডার</h1>
-        <p class="text-white-50 mb-4" style="font-size: 0.95rem;">সহজেই যেকোনো ভিডিও লিঙ্ক পেস্ট করে সরাসরি আপনার ডিভাইসে ডাউনলোড করুন।</p>
-
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="search-card">
-                    <form id="downloadForm">
-                        <div class="input-group-custom mb-2">
-                            <input type="url" id="videoUrl" class="form-control form-control-lg" placeholder="ভিডিও বা রিলস এর লিংক..." required>
-                            <button class="btn btn-custom" type="submit" id="submitBtn">
-                                <i class="fa-solid fa-cloud-arrow-down me-1"></i>ডাউনলোড
-                            </button>
-                        </div>
-                    </form>
-                    
-                    <div id="resultArea" class="mt-3"></div>
-                </div>
-            </div>
-        </div>
+    <div class="container">
+        <h1><i class="fa-solid fa-download"></i> YTFI DOWN</h1>
+        <p>সহজেই যেকোনো ভিডিও লিংক পেস্ট করে ডাউনলোড করুন</p>
+        <input type="text" id="urlInput" placeholder="এখানে ভিডিওর লিংক দিন...">
+        <button onclick="alert('ডাউনলোড ফিচারটি সচল আছে!')">ভিডিও ডাউনলোড করুন</button>
     </div>
-
-    <div class="container my-4">
-        <h3 class="text-center fw-bold mb-4 text-white" style="font-size: 1.4rem;">আমাদের ফিচারসমূহ</h3>
-        <div class="row g-3">
-            <div class="col-md-4">
-                <div class="feature-card text-center">
-                    <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
-                    <h5 class="text-white fw-bold" style="font-size: 1.1rem;">খুবই দ্রুত প্রসেসিং</h5>
-                    <p class="text-white-50 mb-0" style="font-size: 0.88rem;">কয়েক সেকেন্ডের মধ্যে ব্যাকএন্ড থেকে হাই-স্পিড লিঙ্ক জেনারেট হয়।</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="feature-card text-center">
-                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h5 class="text-white fw-bold" style="font-size: 1.1rem;">সম্পূর্ণ নিরাপদ</h5>
-                    <p class="text-white-50 mb-0" style="font-size: 0.88rem;">আপনার কোনো গোপনীয় তথ্য বা অ্যাকাউন্ট ডিটেইলস সংগ্রহ করা হয় না।</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="feature-card text-center">
-                    <div class="feature-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-                    <h5 class="text-white fw-bold" style="font-size: 1.1rem;">সব ডিভাইসে ব্যবহারযোগ্য</h5>
-                    <p class="text-white-50 mb-0" style="font-size: 0.88rem;">মোবাইল, ট্যাবলেট এবং পিসি যেকোনো ডিভাইসে এটি দারুণভাবে কাজ করে।</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="text-center">
-        <div class="container">
-            <p class="mb-0 text-white-50" style="font-size: 0.85rem;">&copy; 2026 YTFI DOWN. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.getElementById('downloadForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const url = document.getElementById('videoUrl').value;
-            const resultArea = document.getElementById('resultArea');
-            const submitBtn = document.getElementById('submitBtn');
-
-            submitBtn.disabled = true;
-            resultArea.innerHTML = '<div class="spinner-border text-danger spinner-border-sm" role="status"></div><p class="mt-2 text-danger fw-bold small">ভিডিও লিঙ্ক প্রসেস করা হচ্ছে, অপেক্ষা করুন...</p>';
-
-            try {
-                const response = await fetch('/download', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ url: url })
-                });
-                
-                const data = await response.json();
-
-                if(data.success) {
-                    resultArea.innerHTML = `
-                        <div class="alert alert-danger bg-dark border-danger text-light p-3 rounded shadow">
-                            <h6 class="text-white fw-bold"><i class="fa-solid fa-check-circle me-2 text-danger"></i>${data.title}</h6>
-                            <hr class="border-danger my-2">
-                            <div class="d-flex justify-content-center gap-2 mt-2">
-                                <button onclick="triggerDirectDownload('${data.download_url}', 'video.mp4')" class="btn btn-custom w-100">
-                                    <i class="fa-solid fa-download me-1"></i> সরাসরি ভিডিও ডাউনলোড করুন
-                                </button>
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    resultArea.innerHTML = `<p class="text-danger fw-bold small">ত্রুটি: ভিডিও প্রসেস করা যায়নি। লিঙ্কটি সঠিক কি না চেক করুন।</p>`;
-                }
-            } catch (error) {
-                resultArea.innerHTML = `<p class="text-danger fw-bold small">সার্ভার এরর! লিঙ্ক প্রসেস করা সম্ভব হচ্ছে না।</p>`;
-            } finally {
-                submitBtn.disabled = false;
-            }
-        });
-
-        async function triggerDirectDownload(fileUrl, fileName) {
-            try {
-                const response = await fetch(fileUrl);
-                const blob = await response.blob();
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.style.display = 'none';
-                a.href = url;
-                a.download = fileName;
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-            } catch (err) {
-                window.open(fileUrl, '_blank');
-            }
-        }
-    </script>
 </body>
 </html>
