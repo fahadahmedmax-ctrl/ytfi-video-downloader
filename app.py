@@ -1,10 +1,14 @@
 import os
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import yt_dlp
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='.')
 CORS(app)
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 @app.route('/download', methods=['POST'])
 def download_video():
